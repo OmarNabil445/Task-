@@ -1,0 +1,22 @@
+name: MyWorkflow
+
+on: 
+     push:
+     workflow_dispatch:
+
+jobs:
+     job1:
+          runs-on: ubuntu-latest
+
+          steps:
+               - name: Print two statements
+                 run: |
+                     echo "Job 1 is successful"
+
+     job2:
+          needs: job1
+          runs-on: ubuntu-latest
+
+          steps:
+               - name: Print Job 2 statement
+                 run: echo "Job 2 is successful after Job 1"
